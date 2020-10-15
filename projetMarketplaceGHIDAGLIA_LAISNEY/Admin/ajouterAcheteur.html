@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<?php session_start(); ?>
+<head>
+  <title>Administrateur ajoute un Acheteur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.header').height($(window).height());
+    });
+  </script>
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  <style>
+    .parent{
+      text-align: center;
+      background-color: #01717C;
+      color:white;
+      padding: 5px;
+      border-bottom: grey;
+      padding-left:5px;
+      width:100%;
+    }
+    .enfant{
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    .enfant img{
+      width:20%;
+      border-radius: 30px;
+    }
+    .enfant p{
+      margin: 5px;
+    }
+    .enfant
+    {
+      display: none;
+    }
+
+    .parent:hover .enfant{
+      display:block;
+    }
+  </style>
+  </head>
+<body>
+  <div class="topnav" id="myTopnav" >
+  <b class="active"><img src="../img/logomarket.jpg" alt="ECEmarketplace" style="width:100px;"></b>
+  <a href="listeAcheteurs.php"> Retourner à la liste</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  </div>
+
+  <div class="parent">Mon Compte
+    <div class="enfant">
+      <img src="../Vendeur/uploads/account.png">
+      <div class="center"style="background-color:grey;color:white;">
+        <p><?php echo 'Bonjour ' . $_SESSION['id'];?>, vous êtes connecté en tant que Administrateur.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="space"></div>
+  <div class="wrapper">
+  <form action="ajouterAcheteur.php" method="post">
+  <div class="container">
+   <div class="row justify-content-lg-center">
+     <div class="col-lg-4">
+
+      <h3 class="feature-title" style="text-align:center;margin-bottom:40px;color:white;margin-top:40px;">Ajoutez un acheteur !</h3>
+
+      <div class="form-group" style="text-align:center;margin-bottom:40px;">
+        <input type="text" class="form-control"
+        placeholder="Nom" name="nom" required>
+      </div>
+
+      <div class="form-group"style="text-align:center;margin-bottom:40px;">
+        <input type="text" class="form-control"
+        placeholder="Prénom" name="prenom" required>
+      </div>
+
+      <div class="form-group"style="text-align:center;margin-bottom:40px;">
+        <input type="email" class="form-control"
+        placeholder="Login (email ECE)" name="pseudo" required>
+      </div>
+
+      <div class="form-group"style="text-align:center;margin-bottom:40px;">
+        <input type="password" class="form-control"
+        placeholder="Mot de passe" name="mdp" required>
+      </div>
+
+      <div class="form-group">
+        <table style="color:white;">
+          <td>Type de Paiement :</td>
+          <td>
+            <input type="radio" name="classe" value="visa">Visa<br>
+            <input type="radio" name="classe" value="masterCard">MasterCard <br>
+            <input type="radio" name="classe" value="americanExpress">American Express<br>
+            <input type="radio" name="classe" value="payPal">Pay Pal<br><br>
+          </td>
+        </table>
+      </div>
+
+      <input type="submit" class="btn btn-secondary btn-block"
+      value="Ajouter" name="ajouter">
+    </div>
+
+
+  </div>
+</div>
+</form>
+<div class="space"></div>
+</div>
+<div class="space"></div>
+  <div class="footer" style="border-top : 1px solid grey;  justify-content: space-between;display:flex;">
+      <div class="infoFooter">
+        <p><a href="../contact.html">Contact</a></p>
+      </div>
+      <div class="infoFooter">
+        <div class="text-right"><a style="text-decoration:none; " href="accueilAdmin.php"><p >Retourner à la page d'accueil</p></a></div>
+      </div>
+  </div>
+</body>
+
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+</footer>
+</html>
